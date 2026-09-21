@@ -1,0 +1,32 @@
+/*#primary>ytd-rich-grid-renderer{
+    display: none; 
+}*/
+
+[role="main"][page-subtype="home"]{
+    display:none;
+}
+
+
+/*
+Home:
+<div id="content" class="style-scope ytd-app">
+    <ytd-browse class="style-scope ytd-page-manager" rounded-container="" page-subtype="home" responsive-sizing="COMPACT" role="main">
+        <ytd-two-column-browse-results-renderer class="style-scope ytd-browse grid grid-disabled" page-subtype="home" disable-grid-state-aware=""   
+            <div id="primary" class="style-scope ytd-two-column-browse-results-renderer">
+                This one includes the Home page videos and filter titles <ytd-rich-grid-renderer class="style-scope ytd-two-column-browse-results-renderer"
+                    <div id="contents" class="style-scope ytd-rich-grid-renderer">
+
+Search:
+<div id="content" class="style-scope ytd-app">
+
+Channel videos:
+<ytd-browse class="style-scope ytd-page-manager" rounded-container="" page-subtype="home" responsive-sizing="COMPACT" hidden="">
+<ytd-browse class="style-scope ytd-page-manager" rounded-container="" page-subtype="channels" responsive-sizing="COMPACT" role="main">
+    <ytd-two-column-browse-results-renderer class="style-scope ytd-browse grid grid-1-columns"
+        <div id="primary" class="style-scope ytd-two-column-browse-results-renderer">
+            <ytd-rich-grid-renderer class="style-scope ytd-two-column-browse-results-renderer" 
+                <ytd-browse class="style-scope ytd-page-manager" rounded-container="" page-subtype="channels" responsive-sizing="COMPACT" role="main">
+                    <div id="contents" class="style-scope ytd-rich-grid-renderer">
+
+
+*/
