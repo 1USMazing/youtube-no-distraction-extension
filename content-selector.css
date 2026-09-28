@@ -1,10 +1,6 @@
-/*#primary>ytd-rich-grid-renderer{
-    display: none; 
-}*/
-
-[role="main"][page-subtype="home"]{
+/*[role="main"][page-subtype="home"]{
     display:none;
-}
+}*/
 
 
 /*
