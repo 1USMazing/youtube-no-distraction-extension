@@ -58,3 +58,24 @@ recommendations_observer.observe(document.body,{
     childList: true,
     subtree: true
 })
+
+//Comments 
+const comments_observer = new MutationObserver(function(){
+    const comments = document.querySelector('ytd-comments#comments.style-scope.ytd-watch-flexy');
+    if(comments){
+        chrome.storage.local.get(function(result){
+            resolveCeckboxChange(comments, result.CommentsCheckboxValue);
+        })
+
+        chrome.storage.onChanged.addListener(function(changes, areaName){
+            if(areaName != 'local') return;
+            resolveCeckboxChange(comments, changes.CommentsCheckboxValue.newValue);
+        })
+        comments_observer.disconnect();
+    }
+});
+
+comments_observer.observe(document.body, {
+    childList: true,
+    subtree: true
+})
