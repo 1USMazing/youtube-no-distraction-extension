@@ -2,6 +2,11 @@
     display:none;
 }*/
 
+/*Block recommended videos and comments*/
+/*#contents{
+    display: none;
+}*/
+
 
 /*
 Home:
@@ -11,6 +16,15 @@ Home:
             <div id="primary" class="style-scope ytd-two-column-browse-results-renderer">
                 This one includes the Home page videos and filter titles <ytd-rich-grid-renderer class="style-scope ytd-two-column-browse-results-renderer"
                     <div id="contents" class="style-scope ytd-rich-grid-renderer">
+
+Recommendations:
+<div class="box style-scope ytd-watch-flexy">
+    <div id="related" class="style-scope ytd-watch-flexy"> -- Aceasta este de ascuns
+    
+
+Comments:
+<ytd-comments id="comments" class="style-scope ytd-watch-flexy">
+            
 
 Search:
 <div id="content" class="style-scope ytd-app">

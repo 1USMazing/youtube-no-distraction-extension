@@ -1,4 +1,5 @@
-const observer = new MutationObserver(function(){
+//Home videos
+const home_observer = new MutationObserver(function(){
     var ytd_home = document.querySelector('[role="main"]');
 
     if(ytd_home){
@@ -7,27 +8,53 @@ const observer = new MutationObserver(function(){
 
         chrome.storage.local.get(function(result){
             const HomeVideosCheckboxValue = result.HomeVideosCheckboxValue;
-            resolveHomeVideosCheckboxChange(home_page, HomeVideosCheckboxValue);
+            resolveCeckboxChange(home_page, HomeVideosCheckboxValue);
         });
         
         chrome.storage.onChanged.addListener((changes, areaName) => {
             if(areaName != "local") return;
             const HomeVideosCheckboxValue = changes.HomeVideosCheckboxValue.newValue;
-            resolveHomeVideosCheckboxChange(home_page, HomeVideosCheckboxValue);
+            resolveCeckboxChange(home_page, HomeVideosCheckboxValue);
         });
-        observer.disconnect();
+    
+        home_observer.disconnect();
     }
 });
 
-observer.observe(document.body, {
+home_observer.observe(document.body, {
     childList: true,
     subtree: true
 })
 
-function resolveHomeVideosCheckboxChange(homePageContainer, checkBoxValue) {
+function resolveCeckboxChange(pageContainer, checkBoxValue) {
     if(checkBoxValue){
-        homePageContainer.style.display = 'none';
+        pageContainer.style.display = 'none';
     }else{
-        homePageContainer.style.display= 'block';
+        pageContainer.style.display= 'block';
     }
 }
+
+// Recommendations 
+const recommendations_observer = new MutationObserver(function(){
+    var related = document.querySelector('#related.style-scope.ytd-watch-flexy');
+
+    if(related){
+        chrome.storage.local.get(function(result){
+            const RecommendationsCheckbox = result.RecommendationsCheckboxValue;
+            resolveCeckboxChange(related, RecommendationsCheckbox);
+        })
+
+        chrome.storage.onChanged.addListener(function(changes, areaName){
+            if(areaName != 'local') return;
+            const RecommendationsCheckbox = changes.RecommendationsCheckboxValue.newValue;
+            resolveCeckboxChange(related, RecommendationsCheckbox);
+        })
+
+        recommendations_observer.disconnect();
+    }
+});
+
+recommendations_observer.observe(document.body,{
+    childList: true,
+    subtree: true
+})
